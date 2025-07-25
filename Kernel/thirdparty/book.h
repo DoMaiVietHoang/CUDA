@@ -192,17 +192,14 @@ void wait_for_threads( const CUTThread *threads, int num );
         pthread_create(&thread, NULL, func, data);
         return thread;
     }
-
     //Wait for thread to finish
     void end_thread(CUTThread thread){
         pthread_join(thread, NULL);
     }
-
     //Destroy thread
     void destroy_thread( CUTThread thread ){
         pthread_cancel(thread);
     }
-
     //Wait for multiple threads
     void wait_for_threads(const CUTThread * threads, int num){
         for(int i = 0; i < num; i++)
@@ -210,8 +207,4 @@ void wait_for_threads( const CUTThread *threads, int num );
     }
 
 #endif
-
-
-
-
 #endif  // __BOOK_H__
