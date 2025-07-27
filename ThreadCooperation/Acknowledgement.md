@@ -4,7 +4,7 @@
 - Block is splitted into threads.
 ![](resourses/images/image.png)
 ## GPUs sum of a longer vector
-# Challenging:
+### Challenging:
 - Have to change the index compution within the kernel
 - Have to change the kernel lauch itself
-<pre> ```cpp // int tid = threadIdx.x  +  blockIdx.x*blockDim.x``` </pre>
+<pre> ```int tid = threadIdx.x  +  blockIdx.x*blockDim.x```</pre>
