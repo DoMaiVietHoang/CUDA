@@ -8,7 +8,7 @@
 - Have to change the index compution within the kernel
 - Have to change the kernel lauch itself
 ```int tid = threadIdx.x + blockIdx.x*blockDim.x```
-
+![](./image.png)
 ## Shared memory and Synchronization
 ### Dot product
 - Each thread multiples a pair of corresponding entries and then every thread moves on to its next pair. In details:
@@ -42,3 +42,4 @@
         }
     }
     ```
+
