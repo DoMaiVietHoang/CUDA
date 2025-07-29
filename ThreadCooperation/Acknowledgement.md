@@ -7,7 +7,7 @@
 ### Challenging:
 - Have to change the index compution within the kernel
 - Have to change the kernel lauch itself
-<pre> ```int tid = threadIdx.x + blockIdx.x*blockDim.x```</pre>
+```int tid = threadIdx.x + blockIdx.x*blockDim.x```
 
 ## Shared memory and Synchronization
 ### Dot product
@@ -15,6 +15,26 @@
     Supppse that we have two vectors A and B and we want to compute the dot product and store the result in C.
     In CUDA, instead of using a sequential loop, we can use multiple parallel threads, each responsible for computing a part of the dot product.
     For instance,  
+```c
+#include <stdio.h>
+
+int main() {
     int A[8] = {1, 2, 3, 4, 5, 6, 7, 8};
-int B[8] = {10, 20, 30, 40, 50, 60, 70, 80};
-int C[8]; // Kết quả
+    int B[8] = {10, 20, 30, 40, 50, 60, 70, 80};
+    int C[8]; // Kết quả
+
+    // Tính tổng từng phần tử tương ứng
+    for (int i = 0; i < 8; i++) {
+        C[i] = A[i] + B[i];
+    }
+
+    // In kết quả
+    printf("C = {");
+    for (int i = 0; i < 8; i++) {
+        printf("%d", C[i]);
+        if (i < 7) printf(", ");
+    }
+    printf("}\n");
+
+    return 0;
+}
